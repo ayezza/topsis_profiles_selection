@@ -1,0 +1,52 @@
+{
+  "project_name": "TOPSIS Profile Selection System",
+  "description": "Profile selection using TOPSIS algorithm with configurable skill threshold",
+  "version": "1.0.0",
+  "author": "Abdel YEZZA (Ph.D)",
+
+  "data": {
+    "profiles_file": "data/input/profiles.csv",
+    "activities_file": "data/input/activities.csv",
+    "output_dir": "data/output"
+  },
+
+  "topsis_settings": {
+    "proximity_formula": "standard",
+    "proximity_formula_options": ["standard", "variant"],
+    "proximity_formula_description": {
+      "standard": "S*[i] = E-[i] / (E+[i] + E-[i]) - Values between 0 and 1",
+      "variant": "S*[i] = E-[i] / E+[i] - Better discrimination, normalized to [0,1]"
+    }
+  },
+
+  "threshold_settings": {
+    "threshold": 3.0,
+    "min_threshold": 0.0,
+    "max_threshold": 5.0,
+    "description": "Skill levels >= threshold are treated as beneficial (maximize), < threshold as non-beneficial (minimize)"
+  },
+
+  "weight_settings": {
+    "strategy": "uniform",
+    "strategy_options": ["uniform", "requirement_based", "custom"],
+    "strategy_descriptions": {
+      "uniform": "All skills have equal weight",
+      "requirement_based": "Weights proportional to required skill levels",
+      "custom": "User-defined weights for each skill"
+    },
+    "custom_weights": null
+  },
+
+  "output_settings": {
+    "top_n_profiles": 3,
+    "save_detailed_results": true,
+    "generate_visualizations": true,
+    "verbose": false
+  },
+
+  "visualization_settings": {
+    "chart_types": ["bar", "radar", "heatmap"],
+    "figure_format": "png",
+    "figure_dpi": 300
+  }
+}
