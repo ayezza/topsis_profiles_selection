@@ -11,8 +11,8 @@
   },
 
   "topsis_settings": {
-    "proximity_formula": "standard",
     "proximity_formula_options": ["standard", "variant"],
+    "proximity_formula": "variant",
     "proximity_formula_description": {
       "standard": "S*[i] = E-[i] / (E+[i] + E-[i]) - Values between 0 and 1",
       "variant": "S*[i] = E-[i] / E+[i] - Better discrimination, normalized to [0,1]"

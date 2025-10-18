@@ -45,6 +45,7 @@ class ProfileVisualizer:
         results: Dict,
         activity_name: str,
         top_n: int = 10,
+        proximity_formula: str = 'add topsis method',
         save: bool = True
     ) -> Optional[Path]:
         """
@@ -70,7 +71,7 @@ class ProfileVisualizer:
 
         ax.set_xlabel('Proximity Coefficient', fontsize=12, fontweight='bold')
         ax.set_ylabel('Profile', fontsize=12, fontweight='bold')
-        ax.set_title(f'TOPSIS Ranking: {activity_name}\nTop {top_n} Profiles',
+        ax.set_title(f'TOPSIS Ranking: {activity_name}\nTop {top_n} Profiles-Method: ' + proximity_formula,
                     fontsize=14, fontweight='bold')
 
         # Add value labels on bars
@@ -96,6 +97,7 @@ class ProfileVisualizer:
     def plot_comparison_heatmap(
         self,
         full_results_df: pd.DataFrame,
+        proximity_formula: str = 'add topsis method',
         save: bool = True
     ) -> Optional[Path]:
         """
@@ -125,7 +127,7 @@ class ProfileVisualizer:
             linewidths=0.5
         )
 
-        ax.set_title('TOPSIS Results Heatmap\nProfiles vs Activities',
+        ax.set_title('TOPSIS Results Heatmap-Method: ' + proximity_formula + '\nProfiles vs Activities',
                     fontsize=16, fontweight='bold', pad=20)
         ax.set_xlabel('Profile', fontsize=12, fontweight='bold')
         ax.set_ylabel('Activity', fontsize=12, fontweight='bold')
@@ -148,6 +150,7 @@ class ProfileVisualizer:
         profiles_df: pd.DataFrame,
         profile_names: List[str],
         activity_name: str,
+        proximity_formula: str = 'add topsis method',
         save: bool = True
     ) -> Optional[Path]:
         """
@@ -191,7 +194,7 @@ class ProfileVisualizer:
         ax.set_yticklabels(['1', '2', '3', '4', '5'], fontsize=8)
         ax.grid(True)
 
-        ax.set_title(f'Skill Comparison - {activity_name}\nTop Profiles',
+        ax.set_title(f'Skill Comparison - {activity_name}\nTop Profiles-Method: ' + proximity_formula,
                     fontsize=14, fontweight='bold', pad=20)
 
         plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
@@ -212,6 +215,7 @@ class ProfileVisualizer:
         results: Dict,
         activity_name: str,
         top_n: int = 10,
+        proximity_formula: str = 'add topsis method',
         save: bool = True
     ) -> Optional[Path]:
         """
@@ -244,7 +248,7 @@ class ProfileVisualizer:
 
         ax.set_xlabel('Profile', fontsize=12, fontweight='bold')
         ax.set_ylabel('Euclidean Distance', fontsize=12, fontweight='bold')
-        ax.set_title(f'Distance Analysis: {activity_name}\nTop {top_n} Profiles',
+        ax.set_title(f'Distance Analysis: {activity_name}\nTop {top_n} Profiles-Method: ' + proximity_formula,
                     fontsize=14, fontweight='bold')
         ax.set_xticks(x)
         ax.set_xticklabels(profiles, rotation=45, ha='right')
@@ -267,6 +271,7 @@ class ProfileVisualizer:
         self,
         activities_df: pd.DataFrame,
         threshold: float,
+        proximity_formula: str = 'add topsis method',
         save: bool = True
     ) -> Optional[Path]:
         """
@@ -306,7 +311,7 @@ class ProfileVisualizer:
 
         ax.set_xlabel('Activity', fontsize=12, fontweight='bold')
         ax.set_ylabel('Number of Skills', fontsize=12, fontweight='bold')
-        ax.set_title(f'Criteria Type Distribution by Activity\nThreshold = {threshold}',
+        ax.set_title(f'Criteria Type Distribution by Activity\nThreshold = {threshold}-Method: ' + proximity_formula,
                     fontsize=14, fontweight='bold')
         ax.set_xticks(x)
         ax.set_xticklabels(activities, rotation=45, ha='right')
@@ -327,6 +332,7 @@ class ProfileVisualizer:
     def plot_ranking_overview(
         self,
         ranking_matrix_df: pd.DataFrame,
+        proximity_formula: str = 'add topsis method',
         save: bool = True
     ) -> Optional[Path]:
         """
@@ -390,7 +396,7 @@ class ProfileVisualizer:
                 else:
                     cell.set_facecolor('white')
 
-        ax.set_title('TOPSIS Profile Selection - Ranking Overview\nTop Profiles per Activity',
+        ax.set_title('TOPSIS Profile Selection - Ranking Overview\nTop Profiles per Activity-Method: ' + proximity_formula,
                     fontsize=16, fontweight='bold', pad=20)
 
         plt.tight_layout()
@@ -426,14 +432,14 @@ class ProfileVisualizer:
         # 1. Heatmap of all results
         print("    - Creating heatmap...")
         full_results = processor.get_full_results_matrix()
-        file_path = self.plot_comparison_heatmap(full_results, save=True)
+        file_path = self.plot_comparison_heatmap(full_results, processor.proximity_formula,  save=True)
         if file_path:
             saved_files.append(file_path)
 
         # 2. Ranking overview
         print("    - Creating ranking overview...")
         ranking_matrix = processor.get_ranking_matrix(top_n=3)
-        file_path = self.plot_ranking_overview(ranking_matrix, save=True)
+        file_path = self.plot_ranking_overview(ranking_matrix, processor.proximity_formula, save=True)
         if file_path:
             saved_files.append(file_path)
 
@@ -442,6 +448,7 @@ class ProfileVisualizer:
         file_path = self.plot_criteria_distribution(
             processor.activities_df,
             processor.threshold,
+            processor.proximity_formula,
             save=True
         )
         if file_path:
@@ -452,12 +459,12 @@ class ProfileVisualizer:
             print(f"    - Creating charts for activity {i+1}/{len(processor.results)}: {activity_name}")
 
             # Bar chart
-            file_path = self.plot_ranking_bar_chart(results, activity_name, top_n=top_n, save=True)
+            file_path = self.plot_ranking_bar_chart(results, activity_name, top_n=top_n, proximity_formula=processor.proximity_formula, save=True)
             if file_path:
                 saved_files.append(file_path)
 
             # Distance comparison
-            file_path = self.plot_distance_comparison(results, activity_name, top_n=top_n, save=True)
+            file_path = self.plot_distance_comparison(results, activity_name, top_n=top_n, proximity_formula=processor.proximity_formula,save=True)
             if file_path:
                 saved_files.append(file_path)
 
@@ -467,6 +474,7 @@ class ProfileVisualizer:
                 processor.profiles_df,
                 top_profiles,
                 activity_name,
+                processor.proximity_formula,
                 save=True
             )
             if file_path:

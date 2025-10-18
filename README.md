@@ -7,7 +7,7 @@ A comprehensive system for profile evaluation and ranking using the TOPSIS (Tech
 ## Overview
 
 This project combines two powerful concepts:
-1. **Profile-Activity Matching** - Matching profiles to activities based on competencies
+1. **Profile-Activity Matching**: Matching profiles to activities based on competencies - see my article: 
 2. **TOPSIS Algorithm** - Multi-criteria decision analysis for ranking
 
 ### Key Innovation: Dynamic Threshold System

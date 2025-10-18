@@ -16,12 +16,12 @@ import numpy as np
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
-from core.profile_processor import ProfileProcessor, load_profiles_from_csv, load_activities_from_csv
-from core.skill_transformer import SkillTransformer
+from src.core.profile_processor import ProfileProcessor, load_profiles_from_csv, load_activities_from_csv
+from src.core.skill_transformer import SkillTransformer
 
 # Try to import visualization module (optional)
 try:
-    from visualization.charts import ProfileVisualizer
+    from src.visualization.charts import ProfileVisualizer
     VISUALIZATION_AVAILABLE = True
 except ImportError:
     VISUALIZATION_AVAILABLE = False
