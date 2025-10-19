@@ -410,6 +410,106 @@ class ProfileVisualizer:
             plt.show()
             return None
 
+    def plot_optimal_assignment_heatmap(
+        self,
+        full_results_df: pd.DataFrame,
+        assignment_matrix: pd.DataFrame,
+        assignment_info: Dict,
+        proximity_formula: str = 'add topsis method',
+        save: bool = True
+    ) -> Optional[Path]:
+        """
+        Create heatmap showing optimal 1-to-1 assignment with highlighted assignments.
+
+        Args:
+            full_results_df: DataFrame with activities as index, profiles as columns (all scores)
+            assignment_matrix: Binary matrix showing optimal assignments
+            assignment_info: Dictionary with assignment details
+            proximity_formula: TOPSIS method name
+            save: If True, save figure
+
+        Returns:
+            Path to saved figure if save=True, else None
+        """
+        fig, ax = plt.subplots(figsize=(18, 12))
+
+        # Create annotation matrix with scores and assignment markers
+        annot_array = np.empty(full_results_df.shape, dtype=object)
+
+        for i, activity in enumerate(full_results_df.index):
+            for j, profile in enumerate(full_results_df.columns):
+                score = full_results_df.loc[activity, profile]
+                is_assigned = assignment_matrix.loc[activity, profile] == 1
+
+                if is_assigned:
+                    # Highlight assigned pairs with star
+                    annot_array[i, j] = f'★ {score:.3f} ★'
+                else:
+                    annot_array[i, j] = f'{score:.3f}'
+
+        # Create custom colormap
+        from matplotlib.colors import LinearSegmentedColormap
+        colors_list = ['#f7fbff', '#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#4292c6', '#2171b5', '#08519c', '#08306b']
+        n_bins = 100
+        cmap = LinearSegmentedColormap.from_list('custom_blue', colors_list, N=n_bins)
+
+        # Plot heatmap
+        sns.heatmap(
+            full_results_df,
+            annot=annot_array,
+            fmt='',
+            cmap=cmap,
+            cbar_kws={'label': 'Proximity Coefficient'},
+            ax=ax,
+            linewidths=1.5,
+            linecolor='white',
+            vmin=0,
+            vmax=1
+        )
+
+        # Highlight assigned cells with red border
+        for i, activity in enumerate(full_results_df.index):
+            for j, profile in enumerate(full_results_df.columns):
+                if assignment_matrix.loc[activity, profile] == 1:
+                    rect = mpatches.Rectangle(
+                        (j, i), 1, 1,
+                        fill=False,
+                        edgecolor='red',
+                        linewidth=4
+                    )
+                    ax.add_patch(rect)
+
+        # Set title with assignment info
+        method = assignment_info.get('method', 'unknown').upper()
+        total_score = assignment_info.get('total_score', 0)
+        avg_score = assignment_info.get('average_score', 0)
+        n_assignments = assignment_info.get('n_assignments', 0)
+
+        title = f'Optimal 1-to-1 Assignment Heatmap - Method: {proximity_formula}\n'
+        title += f'Assignment Method: {method} | '
+        title += f'Total Score: {total_score:.4f} | '
+        title += f'Average Score: {avg_score:.4f} | '
+        title += f'Assignments: {n_assignments}\n'
+        title += '★ = Optimal Assignment (Red Border)'
+
+        ax.set_title(title, fontsize=14, fontweight='bold', pad=20)
+        ax.set_xlabel('Profile', fontsize=12, fontweight='bold')
+        ax.set_ylabel('Activity', fontsize=12, fontweight='bold')
+
+        plt.xticks(rotation=45, ha='right')
+        plt.yticks(rotation=0)
+        plt.tight_layout()
+
+        if save:
+            filename = self.output_dir / 'optimal_heatmap_all_results.png'
+            plt.savefig(filename, dpi=self.dpi, bbox_inches='tight')
+            plt.close()
+            print(f"\nOptimal assignment heatmap saved to: {filename}")
+            return filename
+        else:
+            plt.show()
+            return None
+
     def generate_all_visualizations(
         self,
         processor,
