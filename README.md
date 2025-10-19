@@ -166,6 +166,8 @@ Profiles are ranked by proximity coefficient (0 to 1):
 - **1.0** = Perfect match with ideal solution
 - **0.0** = Closest to worst solution
 
+**NOTE:** if using `variant` proximity formula, the perfect match is always 1, which facilitates detecting the best choice.
+
 ## Output
 
 ### Directory Structure
@@ -187,20 +189,67 @@ data/output/
 
 ### Sample Output
 
+
+**Case:** `standard proximity formula`
+
 ```
 ================================================================================
-PROFILE SELECTION SUMMARY - TOPSIS Results
-================================================================================
-
 Best Profile for Each Activity
---------------------------------------------------------------------------------
+================================================================================
 Activity                       Best Profile                   Coefficient
 --------------------------------------------------------------------------------
-Backend_Development            Dev10                          0.876543
-Frontend_Development           Dev2                           0.854321
-Team_Lead                      Dev14                          0.891234
+Backend_Development            Profile_10                     0.750578
+Frontend_Development           Profile_1                      0.672916
+Team_Lead                      Profile_14                     0.659264
+Data_Engineer                  Profile_1                      0.703770
+DevOps_Engineer                Profile_4                      0.718717
+...
+================================================================================
+
+================================================================================
+RANKING MATRIX - Top 3 Profiles per Activity
+================================================================================
+
+            Activity              Rank 1              Rank 2              Rank 3
+ Backend_Development Profile_10 (0.7506)  Profile_7 (0.7153)  Profile_1 (0.6702)
+Frontend_Development  Profile_1 (0.6729)  Profile_2 (0.6305)  Profile_7 (0.6281)
+           Team_Lead Profile_14 (0.6593)  Profile_9 (0.6236) Profile_12 (0.6116)
+       Data_Engineer  Profile_1 (0.7038) Profile_10 (0.6652)  Profile_7 (0.6460)
+     DevOps_Engineer  Profile_4 (0.7187) Profile_10 (0.6542) Profile_14 (0.6458)
 ...
 ```
+
+**Case:** `variant proximity formula`
+
+```
+================================================================================
+Best Profile for Each Activity
+================================================================================
+Activity                       Best Profile                   Coefficient
+--------------------------------------------------------------------------------
+Backend_Development            Profile_10                     1.000000
+Frontend_Development           Profile_1                      1.000000
+Team_Lead                      Profile_14                     1.000000
+Data_Engineer                  Profile_1                      1.000000
+DevOps_Engineer                Profile_4                      1.000000
+...
+================================================================================
+
+================================================================================
+RANKING MATRIX - Top 3 Profiles per Activity
+================================================================================
+
+            Activity              Rank 1              Rank 2              Rank 3
+ Backend_Development Profile_10 (1.0000)  Profile_7 (0.8348)  Profile_1 (0.6754)
+Frontend_Development  Profile_1 (1.0000)  Profile_2 (0.8295)  Profile_7 (0.8207)
+           Team_Lead Profile_14 (1.0000)  Profile_9 (0.8564) Profile_12 (0.8140)
+       Data_Engineer  Profile_1 (1.0000) Profile_10 (0.8361)  Profile_7 (0.7681)
+     DevOps_Engineer  Profile_4 (1.0000) Profile_10 (0.7404) Profile_14 (0.7137)
+...
+```
+
+
+
 
 ## Command-Line Options
 
