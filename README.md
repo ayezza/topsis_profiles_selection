@@ -494,8 +494,8 @@ saved_files = visualizer.generate_all_visualizations(
 ## License
 
 This project combines concepts from:
-- Profile Assignment System (MCAP) - Abdel YEZZA (Ph.D)
-- TOPSIS Algorithm Implementation - Abdel YEZZA (Ph.D)
+- [Profile Assignment System (MCAP)](https://www.linkedin.com/posts/abdel-yezza-consultant_profiles-assignment-github-project-activity-7299685203168415744-7UGb?utm_source=share&utm_medium=member_desktop&rcm=ACoAABS0CCcBA1gYrt5DOmJGSk89mkAd_JTAtwY) - Abdel YEZZA (Ph.D)
+- [TOPSIS Algorithm Implementation](https://www.linkedin.com/posts/abdel-yezza-consultant_algorithme-topsis-et-ses-variantes-en-python-activity-7384268427382870017-KduR?utm_source=share&utm_medium=member_desktop&rcm=ACoAABS0CCcBA1gYrt5DOmJGSk89mkAd_JTAtwY) - Abdel YEZZA (Ph.D)
 
 ## Contributing
 
