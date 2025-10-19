@@ -112,6 +112,8 @@ Edit `config.json` to customize:
 
 ## Input Data Format
 
+Make sure that input csv values are in the intervall `[min_threshold, max_threshold]`.
+
 ### Profiles CSV (`data/input/profiles.csv`)
 
 ```csv
