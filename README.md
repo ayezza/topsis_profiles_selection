@@ -505,12 +505,7 @@ For issues, suggestions, or contributions, please contact the author.
 
 **Abdel YEZZA, Ph.D**
 
-Combined System: TOPSIS Profile Selection
-- Profile Matching + TOPSIS Algorithm
-- Dynamic Threshold System
-- Multi-Criteria Decision Analysis
-
 ---
 
 **Version:** 1.0.0
-**Last Updated:** 2024
+**Last Updated:** 2025
