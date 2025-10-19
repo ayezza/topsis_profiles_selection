@@ -21,13 +21,13 @@ This approach allows flexible evaluation where some skills are critical (must be
 
 ## Features
 
-- **Configurable Threshold System** (min_threshold to max_threshold)
-- **Multiple Weight Strategies** (uniform, requirement-based, custom)
-- **Two TOPSIS Proximity Formulas** (standard and variant)
-- **Comprehensive Visualizations** (heatmaps, bar charts, radar plots, distance analysis)
-- **Flexible Input Formats** (CSV files with profiles and activities)
-- **Command-Line Interface** with extensive options
-- **Detailed Results Export** (rankings, matrices, analysis reports)
+- **Configurable Threshold System**: (*min_threshold* to *max_threshold* with *threshold* values) - see config.json file at **threshold_settings** key
+- **Multiple Weight Strategies**: (uniform, requirement-based, custom)
+- **Two TOPSIS Proximity Formulas**: (*standard* and *variant*) - the *standard* cas uses the TOPSIS standard formulas, whereas *variant* uses a variant function already normalized and more disparate than the standard 
+- **Comprehensive Visualizations**: (*heatmaps*, *bar charts*, *radar* plots and *distance analysis*) - the heatmap graph gives ranking and proximity values allowing to choose among the top-ranked profiles.
+- **Flexible Input Formats**: (CSV files with profiles and activities)
+- **Command-Line Interface**: with simple and extensive options
+- **Detailed Results Export**: (rankings, matrices, analysis reports)
 
 ## Installation
 
