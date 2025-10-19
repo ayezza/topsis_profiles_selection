@@ -21,10 +21,10 @@ This approach allows flexible evaluation where some skills are critical (must be
 
 ## Features
 
-- **Configurable Threshold System**: (*min_threshold* to *max_threshold* with *threshold* values) - see config.json file at **threshold_settings** key
+- **Configurable Threshold System**: (*min_threshold* to *max_threshold* with *threshold* values) - see **config.json file** at **threshold_settings** key
 - **Multiple Weight Strategies**: (uniform, requirement-based, custom)
 - **Two TOPSIS Proximity Formulas**: (*standard* and *variant*) - the *standard* cas uses the TOPSIS standard formulas, whereas *variant* uses a variant function already normalized and more disparate than the standard 
-- **Comprehensive Visualizations**: (*heatmaps*, *bar charts*, *radar* plots and *distance analysis*) - the heatmap graph gives ranking and proximity values allowing to choose among the top-ranked profiles.
+- **Comprehensive Visualizations**: (*heatmaps*, *bar charts*, *radar* plots and *distance analysis*) - the **heatmap** graph gives ranking and proximity values allowing to choose among the top-ranked profiles.
 - **Flexible Input Formats**: (CSV files with profiles and activities)
 - **Command-Line Interface**: with simple and extensive options
 - **Detailed Results Export**: (rankings, matrices, analysis reports)
@@ -39,7 +39,7 @@ This approach allows flexible evaluation where some skills are critical (must be
 ### Install Dependencies
 
 ```bash
-cd D:\PythonProjects\topsis_profiles_selection
+cd .\topsis_profiles_selection
 pip install -r requirements.txt
 ```
 
@@ -53,8 +53,8 @@ python main.py
 
 This will:
 - Load profiles and activities from `data/input/`
-- Use threshold = 3.0 (configurable between 0-5)
-- Apply uniform weights to all skills
+- Use threshold = 3.0 (configurable between 0-5) by defaut or custom values
+- Apply uniform weights to all skills by default
 - Generate rankings for all activities
 - Save results to `data/output/`
 
@@ -90,6 +90,8 @@ python main.py --profiles data/input/profiles.csv --activities data/input/activi
 
 ## Configuration
 
+This option allows to custumize all input parameters in one JSON configuration file.
+
 Edit `config.json` to customize:
 
 ```json
@@ -120,7 +122,7 @@ Dev3,3,2,5,3,3
 ```
 
 - **First column**: Profile names/IDs
-- **Other columns**: Skill levels (0-5 scale)
+- **Other columns**: Skill levels (0-5 scale or any other scale)
 
 ### Activities CSV (`data/input/activities.csv`)
 
