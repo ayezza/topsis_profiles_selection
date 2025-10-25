@@ -11,7 +11,7 @@ In your TOPSIS results, you may have situations like:
 - Profile_5 is ranked #1 for Team_Lead AND appears in top rankings for other activities
 - Profile_1 is ranked #1 for both Frontend_Development AND Tech_Lead
 
-This creates conflicts when trying to assign unique profiles to each activity.
+If your goal is to assign each profile to a unique activity, this creates conflicts when trying to assign unique profiles to each activity.
 
 ## Solution Approach
 
@@ -31,11 +31,11 @@ The implementation provides **two methods** based on the dimensions of your data
   3. Continues until all activities are assigned
 - **Result**: Some profiles may remain unassigned if #profiles > #activities
 
-## Your Current Data
+## Example: Your Current Data
 
 - **Profiles**: 15
 - **Activities**: 10
-- **Method Used**: Greedy (since 15 ≠ 10)
+- **Method Used**: `Greedy` (since 15 ≠ 10)
 
 ## Optimal Assignment Results
 
@@ -55,7 +55,9 @@ The greedy algorithm produced the following optimal 1-to-1 assignment:
 | Tech_Lead | Profile_2 | 0.8481 |
 
 **Total Score**: 9.4159
+
 **Average Score**: 0.9416
+
 **Unassigned Profiles**: Profile_6, Profile_8, Profile_9, Profile_10, Profile_11
 
 ## Files Generated
@@ -151,12 +153,6 @@ The heatmap (`optimal_heatmap_all_results.png`) shows:
 - The Hungarian algorithm would give the **mathematically optimal** solution only when dimensions match
 
 ## Dependencies
-
-- pandas
-- numpy
-- scipy (for Hungarian algorithm)
-- matplotlib
-- seaborn
 
 Install with:
 ```bash
