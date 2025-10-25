@@ -1,14 +1,15 @@
 # TOPSIS Profile Selection System
 
-A comprehensive system for profile evaluation and ranking using the TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) algorithm with configurable skill-level thresholds.
+A comprehensive system for profile evaluation and ranking using the **TOPSIS (Technique for Order Preference by Similarity to Ideal Solution)** algorithm with configurable skill-level thresholds and many other options and features as you will discover below.
 
-**Author:** Abdel YEZZA (Ph.D)
+**Author:** Abdel YEZZA, Ph.D, 2025
 
 ## Overview
 
 This project combines two powerful concepts:
-1. **Profile-Activity Matching**: Matching profiles to activities based on competencies - see my article: 
-2. **TOPSIS Algorithm** - Multi-criteria decision analysis for ranking
+1. **Profile-Activity Matching**: Matching profiles to activities based on competencies - see my article: [Profile Assignment System (MCAP)](https://www.linkedin.com/posts/abdel-yezza-consultant_profiles-assignment-github-project-activity-7299685203168415744-7UGb?utm_source=share&utm_medium=member_desktop&rcm=ACoAABS0CCcBA1gYrt5DOmJGSk89mkAd_JTAtwY) - Abdel YEZZA (Ph.D), 2025
+
+2. **TOPSIS Algorithm** - Multi-criteria decision analysis for ranking  - see my article: [TOPSIS Algorithm Implementation](https://www.linkedin.com/posts/abdel-yezza-consultant_algorithme-topsis-et-ses-variantes-en-python-activity-7384268427382870017-KduR?utm_source=share&utm_medium=member_desktop&rcm=ACoAABS0CCcBA1gYrt5DOmJGSk89mkAd_JTAtwY) - Abdel YEZZA (Ph.D), 2025
 
 ### Key Innovation: Dynamic Threshold System
 
@@ -255,7 +256,7 @@ Frontend_Development  Profile_1 (1.0000)  Profile_2 (0.8295)  Profile_7 (0.8207)
 
 ## Command-Line Options
 
-All options are optional. The **config.json** are loaded first and replaced if any passed parameter on the command-line.
+All options are optional. The **config.json** parameters are loaded first and replaced if any parameter is passed on the command-line.
 
 ```bash
 usage: main.py [-h] [-c CONFIG] [--profiles PROFILES] [--activities ACTIVITIES]
@@ -343,7 +344,7 @@ Characteristics:
 - Handles edge cases when distance to best is zero
 - No normalization required
 - Higher values indicate better match
-- Ranking results are the same as the standard formula
+- Ranking results are the same as in the case of the standard formula
 
 
 ## Examples
