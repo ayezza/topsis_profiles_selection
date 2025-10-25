@@ -87,10 +87,10 @@ OUTPUT: Ranked List for Each Activity
 │  3. Dev1  (Score: 0.82)                          │
 │  ...                                             │
 │                                                  │
-│ Frontend Development:                            │
-│ 1. Dev2  (Score: 0.91) ⭐ Best match             │ 
-│ 2. Dev5  (Score: 0.85)                           │ 
-│ ...                                              │
+│  Frontend Development:                           │
+│  1. Dev2  (Score: 0.91) ⭐ Best match            │ 
+│  2. Dev5  (Score: 0.85)                          │ 
+│  ...                                             │
 └──────────────────────────────────────────────────┘
 ```
 
