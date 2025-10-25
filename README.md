@@ -23,7 +23,7 @@ This approach allows flexible evaluation where some skills are critical (must be
 
 - **Configurable Threshold System**: (*min_threshold* to *max_threshold* with *threshold* values) - see **config.json file** at **threshold_settings** key
 - **Multiple Weight Strategies**: (uniform, requirement-based, custom)
-- **Two TOPSIS Proximity Formulas**: (*standard* and *variant*) - the *standard* cas uses the TOPSIS standard formulas, whereas *variant* uses a variant function already normalized and more disparate than the standard 
+- **Two TOPSIS Proximity Formulas**: (*standard* and *variant*) - the *standard* case uses the TOPSIS standard formulas, whereas *variant* uses a different function already normalized and more disparate than the standard 
 - **Comprehensive Visualizations**: (*heatmaps*, *bar charts*, *radar* plots and *distance analysis*) - the **heatmap** graph gives ranking and proximity values allowing to choose among the top-ranked profiles.
 - **Flexible Input Formats**: (CSV files with profiles and activities)
 - **Command-Line Interface**: with simple and extensive options
@@ -90,7 +90,7 @@ python main.py --profiles data/input/profiles.csv --activities data/input/activi
 
 ## Configuration
 
-This option allows to custumize all input parameters in one JSON configuration file.
+This option allows to custumize all input parameters in one JSON configuration file. You don't have to rember all comand-line options.
 
 Edit `config.json` to customize:
 
@@ -255,6 +255,8 @@ Frontend_Development  Profile_1 (1.0000)  Profile_2 (0.8295)  Profile_7 (0.8207)
 
 ## Command-Line Options
 
+All options are optional. The **config.json** are loaded first and replaced if any passed parameter on the command-line.
+
 ```bash
 usage: main.py [-h] [-c CONFIG] [--profiles PROFILES] [--activities ACTIVITIES]
                [--threshold THRESHOLD] [--min-threshold MIN_THRESHOLD]
@@ -282,7 +284,7 @@ Options:
 
 ### 1. Uniform Weights (Default)
 
-All skills have equal importance:
+All skills have equal importance as for example:
 ```
 weights = [0.1, 0.1, 0.1, ..., 0.1]
 ```
@@ -296,7 +298,7 @@ weights proportional to required_levels
 
 ### 3. Custom Weights
 
-Define specific weights in config.json:
+Define specific weights in **config.json**:
 ```json
 {
   "weight_settings": {
@@ -305,6 +307,9 @@ Define specific weights in config.json:
   }
 }
 ```
+
+In this example, weights are all normalized since their sum is 1.
+
 
 ## TOPSIS Formulas
 
@@ -338,6 +343,8 @@ Characteristics:
 - Handles edge cases when distance to best is zero
 - No normalization required
 - Higher values indicate better match
+- Ranking results are the same as the standard formula
+
 
 ## Examples
 
@@ -364,7 +371,7 @@ Higher thresholds mean more skills are treated as "must have" (beneficial).
 ### Example 3: Generate Complete Report with Visualizations
 
 ```bash
-python main.py -v --viz --output reports/analysis_2024
+python main.py -v --viz --output reports/analysis_2025
 ```
 
 ## Project Structure
@@ -494,8 +501,8 @@ saved_files = visualizer.generate_all_visualizations(
 ## License
 
 This project combines concepts from:
-- [Profile Assignment System (MCAP)](https://www.linkedin.com/posts/abdel-yezza-consultant_profiles-assignment-github-project-activity-7299685203168415744-7UGb?utm_source=share&utm_medium=member_desktop&rcm=ACoAABS0CCcBA1gYrt5DOmJGSk89mkAd_JTAtwY) - Abdel YEZZA (Ph.D)
-- [TOPSIS Algorithm Implementation](https://www.linkedin.com/posts/abdel-yezza-consultant_algorithme-topsis-et-ses-variantes-en-python-activity-7384268427382870017-KduR?utm_source=share&utm_medium=member_desktop&rcm=ACoAABS0CCcBA1gYrt5DOmJGSk89mkAd_JTAtwY) - Abdel YEZZA (Ph.D)
+- [Profile Assignment System (MCAP)](https://www.linkedin.com/posts/abdel-yezza-consultant_profiles-assignment-github-project-activity-7299685203168415744-7UGb?utm_source=share&utm_medium=member_desktop&rcm=ACoAABS0CCcBA1gYrt5DOmJGSk89mkAd_JTAtwY) - Abdel YEZZA (Ph.D), 2025
+- [TOPSIS Algorithm Implementation](https://www.linkedin.com/posts/abdel-yezza-consultant_algorithme-topsis-et-ses-variantes-en-python-activity-7384268427382870017-KduR?utm_source=share&utm_medium=member_desktop&rcm=ACoAABS0CCcBA1gYrt5DOmJGSk89mkAd_JTAtwY) - Abdel YEZZA (Ph.D), 2025
 
 ## Contributing
 
