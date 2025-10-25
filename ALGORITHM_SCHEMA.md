@@ -16,8 +16,8 @@ A non-technical guide to understanding the algorithms used in the TOPSIS Profile
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    PROFILE-ACTIVITY MATCHING                     │
-│                   Three Complementary Approaches                 │
+│                    PROFILE-ACTIVITY MATCHING                    │
+│                   Three Complementary Approaches                │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -37,61 +37,61 @@ INPUT:
 │ • ...       │         │ • ...            │
 └─────────────┘         └──────────────────┘
       │                          │
-      │     ┌───────────┐        │
-      └────>│  Skills   │<───────┘
-            │           │
-            │ • Python  │
-            │ • Java    │
-            │ • SQL     │
-            │ • ...     │
-            └───────────┘
+      │       ┌───────────┐      │
+      └──────>│  Skills   │<─────┘
+              │           │
+              │ • Python  │
+              │ • Java    │
+              │ • SQL     │
+              │ • ...     │
+              └───────────┘
 
 STEP 1: Profile Assignment System (MCAP)
 ┌────────────────────────────────────────────────────┐
 │  Skill Transformation Based on Threshold           │
 │                                                    │
-│  For each activity requirement:                   │
-│  • If skill level >= Threshold (e.g., 3.0)        │
-│    → Mark as BENEFICIAL (higher is better)        │
-│  • If skill level < Threshold                     │
-│    → Mark as NON-BENEFICIAL (lower is acceptable) │
+│  For each activity requirement:                    │
+│  • If skill level >= Threshold (e.g., 3.0)         │
+│    → Mark as BENEFICIAL (higher is better)         │
+│  • If skill level < Threshold                      │
+│    → Mark as NON-BENEFICIAL (lower is acceptable)  │
 │                                                    │
-│  Example: Backend Dev needs Python=5, Leadership=2│
-│  With threshold=3.0:                              │
-│  • Python (5≥3): BENEFICIAL → maximize           │
-│  • Leadership (2<3): NON-BENEFICIAL → minimize   │
+│  Example: Backend Dev needs Python=5, Leadership=2 │
+│  With threshold=3.0:                               │
+│  • Python (5≥3): BENEFICIAL → maximize             │
+│  • Leadership (2<3): NON-BENEFICIAL → minimize     │
 └────────────────────────────────────────────────────┘
             │
             ▼
 STEP 2: TOPSIS Algorithm
-┌────────────────────────────────────────────────────┐
+┌───────────────────────────────────────────────────┐
 │  Multi-Criteria Decision Analysis                 │
-│                                                    │
+│                                                   │
 │  1. Normalize profile skills (make comparable)    │
 │  2. Apply weights (importance of each skill)      │
 │  3. Find IDEAL profile (best in all skills)       │
 │  4. Find WORST profile (worst in all skills)      │
 │  5. Calculate how close each profile is to IDEAL  │
-│                                                    │
+│                                                   │
 │  Result: Proximity Score (0 to 1)                 │
 │  • 1.0 = Perfect match                            │
 │  • 0.0 = Worst match                              │
-└────────────────────────────────────────────────────┘
-            │
-            ▼
+└───────────────────────────────────────────────────┘
+                        │
+                        ▼
 OUTPUT: Ranked List for Each Activity
-┌────────────────────────────────────────────────────┐
-│  Backend Development:                              │
-│  1. Dev10 (Score: 0.95) ⭐ Best match             │
-│  2. Dev7  (Score: 0.87)                           │
-│  3. Dev1  (Score: 0.82)                           │
-│  ...                                              │
-│                                                    │
-│  Frontend Development:                             │
-│  1. Dev2  (Score: 0.91) ⭐ Best match             │
-│  2. Dev5  (Score: 0.85)                           │
-│  ...                                              │
-└────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────┐
+│  Backend Development:                            │
+│  1. Dev10 (Score: 0.95) ⭐ Best match            │
+│  2. Dev7  (Score: 0.87)                          │  
+│  3. Dev1  (Score: 0.82)                          │
+│  ...                                             │
+│                                                  │
+│ Frontend Development:                            │
+│ 1. Dev2  (Score: 0.91) ⭐ Best match             │ 
+│ 2. Dev5  (Score: 0.85)                           │ 
+│ ...                                              │
+└──────────────────────────────────────────────────┘
 ```
 
 **Use Case:**
@@ -113,11 +113,11 @@ STEPS 1-2: Same as Scenario 1 (MCAP + TOPSIS)
 │  Create Compatibility Matrix                       │
 │                                                    │
 │           Backend  Frontend  TeamLead              │
-│  Dev1      0.82      0.91      0.65               │
-│  Dev2      0.75      0.85      0.70               │
-│  Dev3      0.90      0.60      0.88               │
+│  Dev1      0.82      0.91      0.65                │
+│  Dev2      0.75      0.85      0.70                │
+│  Dev3      0.90      0.60      0.88                │
 │                                                    │
-│  Each cell = TOPSIS proximity score               │
+│  Each cell = TOPSIS proximity score                │
 └────────────────────────────────────────────────────┘
             │
             ▼
@@ -128,7 +128,7 @@ STEP 3: Hungarian Algorithm (Optimal Assignment)
 │  Constraint: Each profile → ONE activity           │
 │             Each activity → ONE profile            │
 │                                                    │
-│  Goal: Maximize total satisfaction                │
+│  Goal: Maximize total satisfaction                 │
 │                                                    │
 │  Algorithm finds optimal pairing considering       │
 │  all possibilities simultaneously                  │
@@ -139,11 +139,11 @@ OUTPUT: Optimal Assignments
 ┌────────────────────────────────────────────────────┐
 │  Optimal Assignments:                              │
 │                                                    │
-│  Dev1  →  Frontend Development  (0.91)            │
-│  Dev2  →  Team Lead             (0.70)            │
-│  Dev3  →  Backend Development   (0.90)            │
+│  Dev1  →  Frontend Development  (0.91)             │
+│  Dev2  →  Team Lead             (0.70)             │
+│  Dev3  →  Backend Development   (0.90)             │
 │                                                    │
-│  Total Score: 2.51 (best possible combination)    │
+│  Total Score: 2.51 (best possible combination)     │
 └────────────────────────────────────────────────────┘
 ```
 
@@ -172,24 +172,24 @@ OUTPUT: Optimal Assignments
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │                                                              │
-│   MCAP (Profile Assignment System)                          │
-│   • Transforms requirements based on threshold              │
-│   • Identifies what matters most for each activity          │
-│   • Provides context for evaluation                         │
+│   MCAP (Profile Assignment System)                           │
+│   • Transforms requirements based on threshold               │
+│   • Identifies what matters most for each activity           │
+│   • Provides context for evaluation                          │
 │                                                              │
 │                        ↓                                     │
 │                                                              │
-│   TOPSIS (Multi-Criteria Decision)                          │
-│   • Evaluates profiles against ideal solution               │
-│   • Generates compatibility scores                          │
-│   • Ranks profiles for each activity                        │
+│   TOPSIS (Multi-Criteria Decision)                           │
+│   • Evaluates profiles against ideal solution                │
+│   • Generates compatibility scores                           │
+│   • Ranks profiles for each activity                         │
 │                                                              │
 │                        ↓                                     │
 │                                                              │
-│   HUNGARIAN (Optional - For Optimal Assignment)             │
-│   • Uses TOPSIS scores as input                             │
-│   • Finds globally optimal assignments                      │
-│   • Ensures no conflicts (1 profile = 1 activity)           │
+│   HUNGARIAN (Optional - For Optimal Assignment)              │
+│   • Uses TOPSIS scores as input                              │
+│   • Finds globally optimal assignments                       │
+│   • Ensures no conflicts (1 profile = 1 activity)            │
 │                                                              │
 └──────────────────────────────────────────────────────────────┘
 ```
