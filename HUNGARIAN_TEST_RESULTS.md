@@ -2,8 +2,8 @@
 
 ## Test Configuration
 
-- **Profiles**: 10 (profiles_2.csv)
-- **Activities**: 10 (activities_2.csv)
+- **Profiles**: 10 (see **./data/input/profiles_2.csv**)
+- **Activities**: 10 (see **./data/input/activities_2.csv)**
 - **Dimensions**: 10 × 10 ✓ **MATCH** - Hungarian Algorithm applicable!
 - **TOPSIS Method**: Standard
 - **Threshold**: 3.0
