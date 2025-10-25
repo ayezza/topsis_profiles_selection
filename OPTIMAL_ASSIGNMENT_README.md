@@ -154,11 +154,11 @@ The heatmap (`optimal_heatmap_all_results.png`) shows:
 
 ## Dependencies
 
-Install with:
+Install with if you work in the virtual environment:
 ```bash
 venv/Scripts/python -m pip install pandas numpy scipy matplotlib seaborn
 ```
 
 ## Author
 
-Abdel YEZZA (Ph.D)
+Abdel YEZZA, Ph.D
