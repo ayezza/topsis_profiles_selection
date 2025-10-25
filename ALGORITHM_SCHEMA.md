@@ -108,10 +108,10 @@ OUTPUT: Ranked List for Each Activity
 ### Using: MCAP + TOPSIS + Hungarian Method
 
 ```
-INPUT: **Same as Scenario 1**
+INPUT: Same as Scenario 1
             │
             ▼
-**STEPS 1-2**: Same as Scenario 1 (MCAP + TOPSIS)
+STEPS 1-2: Same as Scenario 1 (MCAP + TOPSIS)
 ┌────────────────────────────────────────────────────┐
 │  Create Compatibility Matrix                       │
 │                                                    │
