@@ -123,6 +123,7 @@ class ProfileVisualizer:
             fmt='',
             cmap='YlGnBu',
             cbar_kws={'label': 'Proximity Coefficient'},
+            annot_kws={'fontsize': 14},
             ax=ax,
             linewidths=0.5
         )
@@ -460,6 +461,7 @@ class ProfileVisualizer:
             fmt='',
             cmap=cmap,
             cbar_kws={'label': 'Proximity Coefficient'},
+            annot_kws={'fontsize': 14},
             ax=ax,
             linewidths=1.5,
             linecolor='white',
