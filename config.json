@@ -5,14 +5,14 @@
   "author": "Abdel YEZZA (Ph.D)",
 
   "data": {
-    "profiles_file": "data/input/profiles.csv",
-    "activities_file": "data/input/activities.csv",
+    "profiles_file": "data/input/profiles_2.csv",
+    "activities_file": "data/input/activities_2.csv",
     "output_dir": "data/output"
   },
 
   "topsis_settings": {
     "proximity_formula_options": ["standard", "variant"],
-    "proximity_formula": "variant",
+    "proximity_formula": "standard",
     "proximity_formula_description": {
       "standard": "S*[i] = E-[i] / (E+[i] + E-[i]) - Values between 0 and 1",
       "variant": "S*[i] = E-[i] / E+[i] - Better discrimination, normalized to [0,1]"
@@ -48,5 +48,17 @@
     "chart_types": ["bar", "radar", "heatmap"],
     "figure_format": "png",
     "figure_dpi": 300
+  },
+
+  "assignment_settings": {
+    "enable_optimal_assignment": false,
+    "assignment_method": "auto",
+    "assignment_method_options": ["auto", "hungarian", "greedy"],
+    "assignment_method_descriptions": {
+      "auto": "Automatically select Hungarian (if dimensions match) or Greedy approach",
+      "hungarian": "Use Hungarian Algorithm for optimal 1-to-1 assignment (requires equal number of profiles and activities)",
+      "greedy": "Use Greedy approach for best-effort assignment (works with any dimensions)"
+    },
+    "generate_assignment_heatmap": true
   }
 }
