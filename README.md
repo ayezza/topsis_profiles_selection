@@ -419,7 +419,7 @@ topsis_profiles_selection/
 ├── config.json                      # Configuration file
 ├── requirements.txt                 # Python dependencies
 ├── README.md                        # This file
-├── src/                          # Core source code (unchanged)
+├── src/                          # Core source code
 │   ├── core/
 │   │   ├── __init__.py
 │   │   ├── profile_processor.py
