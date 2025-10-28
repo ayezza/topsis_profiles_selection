@@ -44,9 +44,45 @@ cd .\topsis_profiles_selection
 pip install -r requirements.txt
 ```
 
-## Quick Start
+### Quick Start
 
-### 1. Basic Usage (Default Configuration)
+1. **Clone the repository**:
+```bash
+git clone https://github.com/ayezza/topsis_profiles_selection
+cd topsis_profiles_selection
+```
+
+2. **Create a virtual environment**:
+```bash
+# Windows, Linux, or macOS
+python -m venv venv
+```
+
+3. **Activate the virtual environment**:
+
+**Windows (Command Prompt)**:
+```bash
+venv\Scripts\activate.bat
+```
+
+**Windows (PowerShell)**:
+```bash
+venv\Scripts\Activate.ps1
+```
+
+**Linux/macOS**:
+```bash
+source venv/bin/activate
+```
+
+4. **Install dependencies**:
+```bash
+pip install -r requirements.txt
+```
+
+### Usage
+
+#### 1. Basic Usage (Default Configuration)
 
 ```bash
 python main.py
@@ -59,31 +95,31 @@ This will:
 - Generate rankings for all activities
 - Save results to `data/output/`
 
-### 2. Custom Threshold
+#### 2. Custom Threshold
 
 ```bash
 python main.py --threshold 3.5
 ```
 
-### 3. Single Activity Processing
+#### 3. Single Activity Processing
 
 ```bash
 python main.py --activity "Backend_Development"
 ```
 
-### 4. Verbose Mode with Visualizations
+#### 4. Verbose Mode with Visualizations
 
 ```bash
 python main.py -v --viz
 ```
 
-### 5. Custom Weight Strategy
+#### 5. Custom Weight Strategy
 
 ```bash
 python main.py --weight-strategy requirement_based
 ```
 
-### 6. Custom Input Files
+#### 6. Custom Input Files
 
 ```bash
 python main.py --profiles data/input/profiles.csv --activities data/input/activities.csv
