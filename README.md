@@ -385,6 +385,7 @@ topsis_profiles_selection/
 ├── README.md                        # This file
 ├── src/                          # Core source code (unchanged)
 │   ├── core/
+│   │   ├── __init__.py
 │   │   ├── profile_processor.py
 │   │   ├── topsis_engine.py
 │   │   ├── optimal_assignment.py
@@ -409,6 +410,9 @@ topsis_profiles_selection/
 ├── data/                         # Data directory (unchanged)
 │   ├── input/
 │   ├── output/
+│   │   ├── figures/
+│   │   ├── rankings/
+│   │   ├── visualizations/
 │   └── benchmark/
 │
 ├── docs/                         # Documentation
