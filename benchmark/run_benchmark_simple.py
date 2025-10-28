@@ -7,6 +7,7 @@ Author: Abdel YEZZA (Ph.D)
 import time
 import subprocess
 import sys
+from pathlib import Path
 
 def run_timed_benchmark(profiles_path, activities_path, use_assignment=True):
     """Run main.py and measure execution time."""
@@ -19,9 +20,12 @@ def run_timed_benchmark(profiles_path, activities_path, use_assignment=True):
     print(f"Assignment: {use_assignment}")
     print("="*80)
 
-    # Build command
+    # Build command - main.py is in parent directory
+    project_root = Path(__file__).parent.parent
+    main_py = project_root / 'main.py'
+
     cmd = [
-        sys.executable, 'main.py',
+        sys.executable, str(main_py),
         '--profiles', profiles_path,
         '--activities', activities_path
     ]

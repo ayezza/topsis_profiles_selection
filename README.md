@@ -383,20 +383,35 @@ topsis_profiles_selection/
 ├── config.json                      # Configuration file
 ├── requirements.txt                 # Python dependencies
 ├── README.md                        # This file
-├── src/
+├── src/                          # Core source code (unchanged)
 │   ├── core/
-│   │   ├── topsis_engine.py        # TOPSIS algorithm implementation
-│   │   ├── skill_transformer.py    # Threshold-based transformation
-│   │   └── profile_processor.py    # Main processing logic
+│   │   ├── profile_processor.py
+│   │   ├── topsis_engine.py
+│   │   ├── optimal_assignment.py
+│   │   └── ...
 │   └── visualization/
-│       └── charts.py                # Visualization generation
-└── data/
-    ├── input/
-    │   ├── profiles.csv            # Sample profiles data
-    │   └── activities.csv          # Sample activities data
-    └── output/
-        ├── rankings/               # Results and rankings
-        └── figures/                # Generated visualizations
+│       └── charts.py
+│
+├── tests/                        # ✨ NEW: Test scripts
+│   ├── __init__.py
+│   ├── README.md
+│   ├── test_formula_comparison.py
+│   ├── test_hungarian_assignment.py
+│   ├── test_threshold_comparison.py
+│   └── example_heatmap_fontsize.py
+│
+├── benchmark/                    # ✨ NEW: Benchmark scripts
+│   ├── __init__.py
+│   ├── README.md
+│   ├── benchmark_performance.py
+│   └── run_benchmark_simple.py
+│
+├── data/                         # Data directory (unchanged)
+│   ├── input/
+│   ├── output/
+│   └── benchmark/
+│
+├── docs/                         # Documentation
 ```
 
 ## API Usage (Python)

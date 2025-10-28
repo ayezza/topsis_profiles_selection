@@ -1,0 +1,247 @@
+================================================================================
+        TOPSIS PROFILE SELECTION SYSTEM - QUICK REFERENCE
+================================================================================
+
+MAIN USAGE
+================================================================================
+
+# Run TOPSIS on profiles and activities
+python main.py
+
+# With custom files
+python main.py --profiles data/input/my_profiles.csv \
+               --activities data/input/my_activities.csv
+
+# With Hungarian assignment
+python main.py --assignment --assignment-method hungarian
+
+# Use variant proximity formula
+python main.py --proximity-formula variant
+
+================================================================================
+TESTING
+================================================================================
+
+# Test proximity formula comparison
+python tests/test_formula_comparison.py
+
+# Test Hungarian algorithm (10x10)
+python tests/test_hungarian_assignment.py
+
+# Test threshold comparison
+python tests/test_threshold_comparison.py
+
+# Heatmap font size examples
+python tests/example_heatmap_fontsize.py
+
+================================================================================
+BENCHMARKING
+================================================================================
+
+# Simple timing benchmark
+python benchmark/run_benchmark_simple.py \
+    --profiles data/input/large_1000_profiles.csv \
+    --activities data/input/large_1000_activities.csv
+
+# Comprehensive benchmark suite
+python benchmark/benchmark_performance.py
+
+================================================================================
+DATA GENERATION
+================================================================================
+
+# Generate 1000x1000 test dataset
+python generate_large_dataset.py -p 1000 -a 1000 -s 50
+
+# Generate small test dataset
+python generate_large_dataset.py -p 100 -a 100 -s 20 --prefix test_100
+
+# Generate with custom output
+python generate_large_dataset.py -p 500 -a 500 -s 30 \
+    --output data/test --prefix custom
+
+================================================================================
+DIRECTORY STRUCTURE
+================================================================================
+
+topsis_profiles_selection/
+├── main.py                       # Main entry point
+├── config.json                   # Configuration
+├── generate_large_dataset.py    # Data generator
+│
+├── src/                          # Core source code
+│   ├── core/                     # TOPSIS algorithms
+│   └── visualization/            # Charts and plots
+│
+├── tests/                        # Test scripts
+│   ├── test_formula_comparison.py
+│   ├── test_hungarian_assignment.py
+│   └── ...
+│
+├── benchmark/                    # Performance benchmarks
+│   ├── benchmark_performance.py
+│   └── run_benchmark_simple.py
+│
+├── data/                         # Data files
+│   ├── input/                    # Input CSVs
+│   ├── output/                   # Results
+│   └── benchmark/                # Benchmark data
+│
+└── docs/                         # Documentation
+
+================================================================================
+KEY FILES
+================================================================================
+
+Configuration:
+  config.json                     # Main configuration
+
+Documentation:
+  README.md                       # Main documentation
+  REORGANIZATION_SUMMARY.md       # Directory structure changes
+  PERFORMANCE_TESTING_GUIDE.md    # Performance testing guide
+  APPLICATIONS_AND_CONTEXTS.md    # Alternative use cases
+  tests/README.md                 # Test documentation
+  benchmark/README.md             # Benchmark documentation
+
+================================================================================
+COMMON TASKS
+================================================================================
+
+1. RUN BASIC ANALYSIS
+   python main.py
+
+2. RUN WITH ASSIGNMENT
+   python main.py --assignment
+
+3. TEST DIFFERENT FORMULAS
+   python tests/test_formula_comparison.py
+
+4. BENCHMARK PERFORMANCE
+   python benchmark/run_benchmark_simple.py \
+       --profiles data/input/large_1000_profiles.csv \
+       --activities data/input/large_1000_activities.csv
+
+5. GENERATE LARGE DATASET
+   python generate_large_dataset.py -p 1000 -a 1000 -s 50
+
+================================================================================
+HELP COMMANDS
+================================================================================
+
+# Main program help
+python main.py --help
+
+# Data generator help
+python generate_large_dataset.py --help
+
+# Benchmark help
+python benchmark/run_benchmark_simple.py --help
+
+================================================================================
+CONFIGURATION OPTIONS
+================================================================================
+
+Edit config.json to customize:
+
+- threshold: Skill level threshold (default: 3.0)
+- proximity_formula: "standard" or "variant"
+- weight_strategy: "uniform", "requirement_based", or "custom"
+- enable_optimal_assignment: true/false
+- assignment_method: "auto", "hungarian", or "greedy"
+
+================================================================================
+OUTPUT LOCATIONS
+================================================================================
+
+TOPSIS Results:
+  data/output/rankings/           # Ranking matrices
+  data/output/figures/            # Visualizations
+
+Test Results:
+  data/output_test/               # Test outputs
+
+Benchmark Results:
+  data/benchmark/                 # Benchmark data
+
+================================================================================
+SYSTEM REQUIREMENTS
+================================================================================
+
+Python: 3.8+
+Required: numpy, pandas, scipy
+Optional: matplotlib, seaborn (for visualizations)
+
+Install:
+  pip install numpy pandas scipy matplotlib seaborn psutil
+
+================================================================================
+PERFORMANCE TIPS
+================================================================================
+
+For Speed:
+  - Use standard proximity formula
+  - Skip visualizations
+  - Use greedy assignment for large datasets
+
+For Memory:
+  - Reduce number of skills
+  - Use greedy instead of Hungarian
+  - Close other applications
+
+================================================================================
+QUICK EXAMPLES
+================================================================================
+
+# Example 1: Basic usage
+python main.py
+
+# Example 2: With Hungarian assignment
+python main.py --assignment --assignment-method hungarian
+
+# Example 3: Generate and benchmark 1000x1000
+python generate_large_dataset.py -p 1000 -a 1000 -s 50 --prefix large_1000
+python benchmark/run_benchmark_simple.py \
+    --profiles data/input/large_1000_profiles.csv \
+    --activities data/input/large_1000_activities.csv
+
+# Example 4: Compare proximity formulas
+python tests/test_formula_comparison.py
+
+# Example 5: Custom configuration
+python main.py --threshold 3.5 --weight-strategy requirement_based \
+               --proximity-formula variant --assignment
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Out of Memory:
+  - Reduce dataset size
+  - Use fewer skills
+  - Increase system RAM
+
+Too Slow:
+  - Use standard formula (--proximity-formula standard)
+  - Skip assignment (--no-assignment)
+  - Use greedy method (--assignment-method greedy)
+
+Import Errors:
+  - Ensure you're in project root directory
+  - Check Python path includes src/
+
+Visualization Errors:
+  - Install matplotlib and seaborn
+  - Or skip visualizations (disabled by default)
+
+================================================================================
+AUTHOR & VERSION
+================================================================================
+
+Author: Abdel YEZZA (Ph.D)
+Version: 1.0.0
+Date: October 2025
+
+================================================================================
+For detailed documentation, see README.md and docs/ directory
+================================================================================

@@ -5,7 +5,12 @@ Uses profiles_2.csv and activities_2.csv
 Author: Abdel YEZZA (Ph.D)
 """
 
+import sys
 from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import pandas as pd
 from src.core.profile_processor import load_profiles_from_csv, load_activities_from_csv, ProfileProcessor
 from src.core.optimal_assignment import OptimalAssignment
@@ -18,8 +23,9 @@ def main():
     print("="*80)
 
     # Paths
-    profiles_file = Path('data/input/profiles_2.csv')
-    activities_file = Path('data/input/activities_2.csv')
+    project_root = Path(__file__).parent.parent
+    profiles_file = project_root / 'data/input/profiles_2.csv'
+    activities_file = project_root / 'data/input/activities_2.csv'
 
     # Check files exist
     if not profiles_file.exists():
@@ -67,7 +73,7 @@ def main():
     print(ranking_matrix.to_string(index=False))
 
     # Save TOPSIS results
-    output_dir = Path('data/output_test')
+    output_dir = project_root / 'data/output_test'
     output_dir.mkdir(parents=True, exist_ok=True)
 
     rankings_dir = output_dir / "rankings"

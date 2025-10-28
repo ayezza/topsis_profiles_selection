@@ -16,8 +16,8 @@ from pathlib import Path
 from datetime import datetime
 import sys
 
-# Add src to path
-sys.path.insert(0, str(Path(__file__).parent / "src"))
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.core.profile_processor import ProfileProcessor
 from src.core.optimal_assignment import OptimalAssignment
@@ -74,7 +74,8 @@ class PerformanceBenchmark:
         start_time = time.time()
         start_memory = self.get_memory_usage()
 
-        output_dir = Path('data/benchmark')
+        project_root = Path(__file__).parent.parent
+        output_dir = project_root / 'data/benchmark'
         profiles_df, activities_df = generate_dataset_pair(
             n_profiles=n_profiles,
             n_activities=n_activities,
@@ -240,7 +241,8 @@ class PerformanceBenchmark:
         print("-"*80)
 
         # Save to CSV
-        output_path = Path('data/benchmark/benchmark_results.csv')
+        project_root = Path(__file__).parent.parent
+        output_path = project_root / 'data/benchmark/benchmark_results.csv'
         output_path.parent.mkdir(parents=True, exist_ok=True)
         df.to_csv(output_path, index=False)
         print(f"\nDetailed results saved to: {output_path}")
@@ -321,7 +323,8 @@ def main():
     benchmark.run_multiple_benchmarks(test_sizes, proximity_formula='variant')
 
     # Save detailed report
-    report_path = Path('data/benchmark/benchmark_report.txt')
+    project_root = Path(__file__).parent.parent
+    report_path = project_root / 'data/benchmark/benchmark_report.txt'
     benchmark.save_report(report_path)
 
     print("\n" + "="*80)

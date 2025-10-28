@@ -5,9 +5,14 @@ optimal assignments when using the Hungarian algorithm.
 Author: Abdel YEZZA (Ph.D)
 """
 
+import sys
+from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import numpy as np
 import pandas as pd
-from pathlib import Path
 from src.core.profile_processor import ProfileProcessor, load_profiles_from_csv, load_activities_from_csv
 from src.core.optimal_assignment import OptimalAssignment
 
@@ -16,8 +21,9 @@ def compare_formulas():
     """Compare standard vs variant proximity formulas for assignment."""
 
     # Use the equal-dimension dataset (10x10)
-    profiles_file = Path('data/input/profiles_2.csv')
-    activities_file = Path('data/input/activities_2.csv')
+    project_root = Path(__file__).parent.parent
+    profiles_file = project_root / 'data/input/profiles_2.csv'
+    activities_file = project_root / 'data/input/activities_2.csv'
 
     if not profiles_file.exists() or not activities_file.exists():
         print("Error: profiles_2.csv and activities_2.csv not found!")
