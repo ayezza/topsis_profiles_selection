@@ -471,7 +471,6 @@ Examples:
     print("PROCESS COMPLETED SUCCESSFULLY")
     print("="*80)
     print(f"\nAll results saved to: {output_dir}")
-    print("\nThank you for using TOPSIS Profile Selection System!")
     print("="*80 + "\n")
 
 
