@@ -443,7 +443,7 @@ topsis_profiles_selection/
 │   ├── benchmark_performance.py
 │   └── run_benchmark_simple.py
 │
-├── data/                         # Data directory (unchanged)
+├── data/                         # Data directory
 │   ├── input/
 │   ├── output/
 │   │   ├── figures/
