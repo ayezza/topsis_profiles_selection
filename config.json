@@ -5,14 +5,14 @@
   "author": "Abdel YEZZA (Ph.D)",
 
   "data": {
-    "profiles_file": "data/input/profiles_2.csv",
-    "activities_file": "data/input/activities_2.csv",
+    "profiles_file": "data/input/profiles_sample.csv",
+    "activities_file": "data/input/activities_sample.csv",
     "output_dir": "data/output"
   },
 
   "topsis_settings": {
     "proximity_formula_options": ["standard", "variant"],
-    "proximity_formula": "standard",
+    "proximity_formula": "variant",
     "proximity_formula_description": {
       "standard": "S*[i] = E-[i] / (E+[i] + E-[i]) - Values between 0 and 1",
       "variant": "S*[i] = E-[i] / E+[i] - Better discrimination, normalized to [0,1]"

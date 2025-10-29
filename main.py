@@ -3,7 +3,7 @@ TOPSIS Profile Selection System
 Main entry point for profile evaluation and ranking using TOPSIS algorithm
 
 Author: Abdel YEZZA (Ph.D)
-Combined System: Profile Assignment + TOPSIS Algorithm
+Combined System: Profile Assignment + TOPSIS Algorithm + HUNGARIAN/GREEDY Assignment + Visualization
 """
 
 import argparse
