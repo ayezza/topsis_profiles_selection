@@ -71,6 +71,19 @@ instance/
 # Sphinx documentation
 docs/_build/
 docs/*.docx
+docs/*.tmp
+
+# some md documentation
+REORGANIZATION_SUMMARY.md
+ALGORITHM_SCHEMA.md
+APPLICATIONS_AND_CONTEXTS.md
+HUNGARIAN_TEST_RESULTS.md
+OPTIMAL_ASSIGNMENT_README.md
+PROJECT_SUMMARY.md
+USAGE_EXAMPLES.md
+QUICK_START_GUIDE.md
+QUICKSTART.md
+REORGANIZATION_SUMMARY.mds
 
 # PyBuilder
 .pybuilder/
