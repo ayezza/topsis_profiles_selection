@@ -147,6 +147,8 @@ Edit `config.json` to customize:
 }
 ```
 
+see the whole options in the `config.json` located at the root project directory.
+
 ## Input Data Format
 
 Make sure that input csv values are in the intervall `[min_threshold, max_threshold]`.

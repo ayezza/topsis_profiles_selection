@@ -15,7 +15,7 @@
     "proximity_formula": "variant",
     "proximity_formula_description": {
       "standard": "S*[i] = E-[i] / (E+[i] + E-[i]) - Values between 0 and 1",
-      "variant": "S*[i] = E-[i] / E+[i] - Better discrimination, normalized to [0,1]"
+      "variant": "S*[ i ] = E-[ i ] / max(E+[ i ]) if E+!=0 else E-[ i ] / max(E+[ i ]) - Better discrimination, normalized to [0,1]"
     }
   },
 

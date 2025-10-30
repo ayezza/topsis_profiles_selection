@@ -422,10 +422,28 @@ Examples:
                 status = "Same" if optimal_profile == top1_profile else "CHANGED"
                 print(f"{activity:<30} {optimal_profile:<20} {top1_profile:<20} {status:<10}")
 
+            # Calculate comparison metrics
+            naive_top1_sum = sum(full_results_df.loc[activity].max() for activity in full_results_df.index)
+            improvement = assignment_results['total_score'] - naive_top1_sum
+
             print("\n" + "="*80)
+            print("ASSIGNMENT SUMMARY")
+            print("="*80)
             print(f"Assignment Method: {assignment_results['method'].upper()}")
-            print(f"Total Score: {assignment_results['total_score']:.6f}")
-            print(f"Average Score: {assignment_results['average_score']:.6f}")
+            print(f"Number of Assignments: {assignment_results['n_assignments']}")
+            print(f"\n--- OPTIMAL ASSIGNMENT METRICS ---")
+            print(f"Sum of Proximity Values (Assigned Pairs): {assignment_results['total_score']:.6f}")
+            print(f"  -> This is the sum of all red-squared cells in the heatmap")
+            print(f"Average Proximity per Assignment: {assignment_results['average_score']:.6f}")
+            print(f"\n--- COMPARISON WITH NAIVE TOP-1 SELECTION ---")
+            print(f"Naive Top-1 Sum (if no optimization): {naive_top1_sum:.6f}")
+            print(f"Improvement over Naive: {improvement:+.6f} ({improvement/naive_top1_sum*100:+.2f}%)")
+            if improvement > 0:
+                print(f"  -> Optimal assignment is BETTER by {improvement:.6f}")
+            elif improvement < 0:
+                print(f"  -> Trade-off: Lower total but globally optimal (avoids conflicts)")
+            else:
+                print(f"  -> Same as naive selection (no conflicts)")
             print("="*80)
 
         except Exception as e:

@@ -242,9 +242,10 @@ class OptimalAssignment:
         print(f"\n{'='*80}")
         print(f"OPTIMAL ASSIGNMENT RESULTS - Method: {self.assignment_method.upper()}")
         print(f"{'='*80}")
-        print(f"Total Score: {self.total_score:.6f}")
-        print(f"Average Score: {self.total_score / len(self.assignment):.6f}")
-        print(f"Assignments: {len(self.assignment)}")
+        print(f"Number of Assignments: {len(self.assignment)}")
+        print(f"Sum of Proximity Values (All Assigned Pairs): {self.total_score:.6f}")
+        print(f"  -> This is the sum of scores for all red-squared cells")
+        print(f"Average Proximity per Assignment: {self.total_score / len(self.assignment):.6f}")
         print(f"\n{'Activity':<30} {'Profile':<30} {'Score':<15}")
         print(f"{'-'*80}")
 
@@ -287,6 +288,21 @@ class OptimalAssignment:
 
         df = pd.DataFrame(results_data)
         df = df.sort_values('Activity')
-        df.to_csv(output_path, index=False)
+
+        # Add summary statistics at the end
+        summary_rows = [
+            {'Activity': '', 'Assigned_Profile': '', 'Score': ''},
+            {'Activity': 'SUMMARY', 'Assigned_Profile': '', 'Score': ''},
+            {'Activity': 'Method', 'Assigned_Profile': self.assignment_method.upper(), 'Score': ''},
+            {'Activity': 'Total Assignments', 'Assigned_Profile': str(len(self.assignment)), 'Score': ''},
+            {'Activity': 'Sum of Proximity Values', 'Assigned_Profile': '(All Assigned Pairs)', 'Score': f'{self.total_score:.6f}'},
+            {'Activity': 'Average Proximity', 'Assigned_Profile': '(Per Assignment)', 'Score': f'{self.total_score / len(self.assignment):.6f}'}
+        ]
+
+        summary_df = pd.DataFrame(summary_rows)
+        df_with_summary = pd.concat([df, summary_df], ignore_index=True)
+
+        df_with_summary.to_csv(output_path, index=False)
 
         print(f"\nAssignment results saved to: {output_path}")
+        print(f"  -> Includes summary: Total Score = {self.total_score:.6f}")
