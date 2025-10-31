@@ -1,12 +1,12 @@
 Activity,Assigned_Profile,Score
-Activity_1,Profile_1,0.5500255846664961
-Activity_2,Profile_5,0.6155781973728929
-Activity_3,Profile_4,0.5250990429231953
-Activity_4,Profile_3,0.5422519173764343
-Activity_5,Profile_2,0.5464423275413446
+Activity_1,Profile_1,0.9003099397286118
+Activity_2,Profile_5,1.0
+Activity_3,Profile_4,1.0
+Activity_4,Profile_3,1.0
+Activity_5,Profile_2,1.0
 ,,
 SUMMARY,,
 Method,HUNGARIAN,
 Total Assignments,5,
-Sum of Proximity Values,(All Assigned Pairs),2.779397
-Average Proximity,(Per Assignment),0.555879
+Sum of Proximity Values,(All Assigned Pairs),4.900310
+Average Proximity,(Per Assignment),0.980062

@@ -25,8 +25,8 @@ class OptimalAssignment:
                            containing TOPSIS proximity coefficients
         """
         self.full_results_df = full_results_df.copy()
-        self.activities = full_results_df.index.tolist()
-        self.profiles = full_results_df.columns.tolist()
+        self.activities = full_results_df.index.tolist() # activities are rows
+        self.profiles = full_results_df.columns.tolist() # profiles are columns
         self.n_activities = len(self.activities)
         self.n_profiles = len(self.profiles)
 
@@ -57,7 +57,7 @@ class OptimalAssignment:
         # Convert DataFrame to numpy array
         cost_matrix = self.full_results_df.values
 
-        # Hungarian algorithm minimizes, so we negate for maximization
+        # Hungarian algorithm minimizes, so we negate for maximization (Min Cost = -Max(-Cost))
         # We use negative values because linear_sum_assignment minimizes
         row_ind, col_ind = linear_sum_assignment(-cost_matrix)
 
