@@ -87,7 +87,8 @@ QUICKSTART.md
 REORGANIZATION_SUMMARY.mds
 
 # tmp stuff:
-./tmp/*
+./tmp/*.*
+./temp/*.*
 
 # PyBuilder
 .pybuilder/
