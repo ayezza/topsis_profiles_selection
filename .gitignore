@@ -68,7 +68,7 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
+# documentation
 docs/_build/
 docs/*.docx
 docs/*.tmp
@@ -85,6 +85,9 @@ USAGE_EXAMPLES.md
 QUICK_START_GUIDE.md
 QUICKSTART.md
 REORGANIZATION_SUMMARY.mds
+
+# SOMET stuff:
+verify_heatmap.py
 
 # PyBuilder
 .pybuilder/
