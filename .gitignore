@@ -86,7 +86,8 @@ QUICK_START_GUIDE.md
 QUICKSTART.md
 REORGANIZATION_SUMMARY.mds
 
-# tmp stuff:
+# tmp and log stuff excluded
+*.log
 tmp/
 temp/
 
