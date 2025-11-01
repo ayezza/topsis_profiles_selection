@@ -86,8 +86,8 @@ QUICK_START_GUIDE.md
 QUICKSTART.md
 REORGANIZATION_SUMMARY.mds
 
-# SOMET stuff:
-./verify_heatmap.py
+# tmp stuff:
+./tmp/
 
 # PyBuilder
 .pybuilder/
